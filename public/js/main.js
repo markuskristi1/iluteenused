@@ -29,14 +29,45 @@ if (scrollBtn) {
     });
 }
 
-const dropdownMenuLinks = document.querySelectorAll(".dropdown-menu a");
+// MOBILE DROPDOWN
+const dropdowns = document.querySelectorAll(".dropdown");
 
-dropdownMenuLinks.forEach(link => {
-    link.addEventListener("click", () => {
+dropdowns.forEach((dropdown) => {
+    const trigger = dropdown.children[0];
+    const menuLinks = dropdown.querySelectorAll(".dropdown-menu a");
+
+    if (!trigger) return;
+
+    trigger.addEventListener("click", (event) => {
         if (window.innerWidth <= 820) {
-            setTimeout(() => {
-                document.activeElement?.blur();
-            }, 50);
+            event.preventDefault();
+            event.stopPropagation();
+
+            const isOpen = dropdown.classList.contains("open");
+
+            dropdowns.forEach((item) => item.classList.remove("open"));
+
+            if (!isOpen) {
+                dropdown.classList.add("open");
+            }
         }
     });
+
+    menuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            if (window.innerWidth <= 820) {
+                dropdown.classList.remove("open");
+            }
+        });
+    });
+});
+
+document.addEventListener("click", (event) => {
+    if (window.innerWidth <= 820) {
+        dropdowns.forEach((dropdown) => {
+            if (!dropdown.contains(event.target)) {
+                dropdown.classList.remove("open");
+            }
+        });
+    }
 });
