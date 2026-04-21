@@ -28,3 +28,15 @@ if (scrollBtn) {
         });
     });
 }
+
+const dropdownMenuLinks = document.querySelectorAll(".dropdown-menu a");
+
+dropdownMenuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        if (window.innerWidth <= 820) {
+            setTimeout(() => {
+                document.activeElement?.blur();
+            }, 50);
+        }
+    });
+});
