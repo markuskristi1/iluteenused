@@ -3,7 +3,7 @@
 Täisfunktsionaalne iluteenuste veebileht koos admin paneeliga.
 
 ## 🌐 Live
-👉 [(lisa siia oma Verceli link)](https://iluteenused.vercel.app/)
+👉 [https://iluteenused.vercel.app/]
 
 ---
 
@@ -75,6 +75,8 @@ node index.js
 
 Ava:
 http://localhost:5203
+```
+---
 
 ## 🔐 Turvalisus
 Admin autentimine toimub sessionite kaudu
