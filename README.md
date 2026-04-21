@@ -67,6 +67,8 @@ ADMIN_PASSWORD_HASH=
 ADMIN2_USERNAME=
 ADMIN2_PASSWORD_HASH=
 
+---
+
 ## 🚀 Käivitamine lokaalselt
 
 ```bash
@@ -83,13 +85,7 @@ Admin autentimine toimub sessionite kaudu
 Paroolid on salvestatud bcrypt hashidena
 Supabase Service Key kasutatakse ainult backendis
 
-## 📸 Pildid
-Pildid salvestatakse Supabase Storage’i
-URL-id hoitakse andmebaasis (gallery_images)
-
-## 🧠 Märkused
-Admin ja public kasutavad sama andmeallikat (Supabase)
-Projekt on deploytud Vercelisse
+---
 
 👩‍💻 Autor
 
