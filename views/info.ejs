@@ -1,0 +1,26 @@
+<%- include("partials/header", { pageTitle: "Info", activePage: "info" }) %>
+
+<section class="info-section">
+    <h1 class="info-title">Info</h1>
+
+    <% if (!infoItems || infoItems.length === 0) { %>
+        <p>Info puudub hetkel.</p>
+    <% } %>
+
+    <% if (infoItems && infoItems.length > 0) { %>
+        <div class="info-nav">
+            <% infoItems.forEach(item => { %>
+                <a href="#section-<%= item.id %>"><%= item.title %></a>
+            <% }) %>
+        </div>
+
+        <% infoItems.forEach(item => { %>
+            <div id="section-<%= item.id %>" class="info-block">
+                <h2><%= item.title %></h2>
+                <p class="info-content"><%= item.content %></p>
+            </div>
+        <% }) %>
+    <% } %>
+</section>
+
+<%- include("partials/footer") %>

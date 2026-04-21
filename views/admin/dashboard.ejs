@@ -1,0 +1,20 @@
+<%- include("partials/header", { pageTitle: "Admin", activePage: "admin" }) %>
+
+<section class="info-section">
+    <h1 class="info-title">ADMIN</h1>
+
+    <div class="info-block">
+        <h2>Tere, <%= username %>!</h2>
+        <p>Oled sisse logitud haldajana.</p>
+        <p>Siit saad hallata kogu veebilehe sisu.</p>
+
+        <ul class="info-list">
+            <li>Hinnakirja muutmine</li>
+            <li>Tehtud tööde piltide lisamine ja kustutamine</li>
+            <li>Info lehe sisu muutmine</li>
+            <li>Kontaktiandmete muutmine</li>
+        </ul>
+    </div>
+</section>
+
+<%- include("partials/footer") %>

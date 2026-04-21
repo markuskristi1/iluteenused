@@ -1,0 +1,58 @@
+1. Naiste juuksur
+
+Jääb nagu on.
+
+2. Meeste juuksur
+
+Jääb nagu on.
+
+3. Juuksehooldused
+
+Praegune Juuksehooldus nimetame ümber:
+
+Juuksehooldused
+
+Sisu jääb samaks.
+
+4. Küüned
+
+Pealkiri:
+
+enne: Geelküüned
+uus: Küüned
+
+Teenused selle all:
+
+Geelküünte paigaldus
+Geelküünte hooldus
+sisaldab ühe küüne vahetust ja lakkimist
+Geelküünte hooldus iga järgnev küüs
+sisaldab ühe küüne vahetust ja lakkimist
+Geellakkimine
+Oma küünte katmine geeliga
+Ühe küüne parandus väljaspool hooldust
+Geelküünte eemaldamine
+
+Märkused jäävad:
+
+Prantsuse maniküüri on võimalik teha ka värviliste geelide ja sädelevate pulbritega.
+Küüne kaunistused Swarovski kristallid.
+5. Juuksepikendused
+
+Põhikategooria:
+
+Juuksepikendused
+
+Selle all kaks alajaotust:
+
+Keratiin juuksepikendused
+
+Sisu jääb samaks.
+
+Teip juuksepikendused
+
+Sisu jääb samaks.
+
+6. Kõrvaaukude tegemine
+
+Jääb samaks.

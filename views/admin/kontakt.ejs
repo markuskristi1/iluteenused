@@ -1,0 +1,27 @@
+<%- include("partials/header", { pageTitle: "Kontakt", activePage: "kontakt" }) %>
+
+<section class="info-section">
+    <h1 class="info-title">KONTAKT (ADMIN)</h1>
+
+    <div class="info-block">
+        <% if (message) { %>
+            <div class="success-message"><%= message %></div>
+        <% } %>
+
+        <form method="POST" action="/admin/kontakt" class="admin-form">
+            <label for="address">Aadress</label>
+            <input type="text" id="address" name="address" value="<%= data?.address || '' %>" required>
+
+            <label for="hours">Lahtiolekuajad</label>
+            <input type="text" id="hours" name="hours" value="<%= data?.hours || '' %>" required>
+
+            <label for="phone">Telefon</label>
+            <input type="text" id="phone" name="phone" value="<%= data?.phone || '' %>" required>
+
+            <button type="submit" class="btn">Salvesta</button>
+        </form>
+    </div>
+</section>
+
+
+<%- include("partials/footer") %>

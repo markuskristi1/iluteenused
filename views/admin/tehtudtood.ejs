@@ -1,0 +1,76 @@
+<%- include("partials/header", { pageTitle: "Tehtud tööd", activePage: "tehtudtood" }) %>
+
+<section class="info-section">
+    <h1 class="info-title">TEHTUD TÖÖD (ADMIN)</h1>
+
+    <div class="info-block">
+        <% if (success) { %>
+            <p class="form-success">Muudatus salvestati edukalt.</p>
+        <% } %>
+
+        <% if (error) { %>
+            <p class="form-error"><%= error %></p>
+        <% } %>
+
+        <h2 class="admin-subtitle">Lisa uus pilt</h2>
+
+        <form action="/admin/tehtudtood/upload" method="POST" enctype="multipart/form-data" class="admin-form">
+            <label for="category">Vali kategooria</label>
+            <select name="category" id="category" required>
+                <option value="kuuned">Küüned</option>
+                <option value="juuksed">Juuksed</option>
+            </select>
+
+            <label for="image">Vali pilt</label>
+            <input type="file" name="image" id="image" accept="image/*" required>
+
+            <button type="submit" class="btn">Lae pilt üles</button>
+        </form>
+    </div>
+
+    <div class="info-block">
+        <h2 class="admin-subtitle">Küüned</h2>
+
+        <% if (kuuned && kuuned.length > 0) { %>
+            <div class="admin-gallery-grid">
+                <% kuuned.forEach(image => { %>
+                    <div class="admin-gallery-card">
+                        <img src="<%= image %>" alt="Küüned">
+
+                        <form action="/admin/tehtudtood/delete" method="POST" class="delete-form">
+                            <input type="hidden" name="category" value="kuuned">
+                            <input type="hidden" name="imagePath" value="<%= image %>">
+                            <button type="submit" class="delete-btn">Kustuta</button>
+                        </form>
+                    </div>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <p class="admin-empty">Küünte pilte pole veel lisatud.</p>
+        <% } %>
+    </div>
+
+    <div class="info-block">
+        <h2 class="admin-subtitle">Juuksed</h2>
+
+        <% if (juuksed && juuksed.length > 0) { %>
+            <div class="admin-gallery-grid">
+                <% juuksed.forEach(image => { %>
+                    <div class="admin-gallery-card">
+                        <img src="<%= image %>" alt="Juuksed">
+
+                        <form action="/admin/tehtudtood/delete" method="POST" class="delete-form">
+                            <input type="hidden" name="category" value="juuksed">
+                            <input type="hidden" name="imagePath" value="<%= image %>">
+                            <button type="submit" class="delete-btn">Kustuta</button>
+                        </form>
+                    </div>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <p class="admin-empty">Juuste pilte pole veel lisatud.</p>
+        <% } %>
+    </div>
+</section>
+
+<%- include("partials/footer") %>

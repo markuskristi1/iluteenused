@@ -1,0 +1,29 @@
+<nav>
+    <ul class="menu">
+        <li>
+            <a href="/admin" class="<%= activePage === 'admin' ? 'active' : '' %>">Admin</a>
+        </li>
+
+        <li>
+            <a href="/admin/hinnakiri" class="<%= activePage === 'hinnakiri' ? 'active' : '' %>">Hinnakiri</a>
+        </li>
+
+        <li>
+            <a href="/admin/tehtudtood" class="<%= activePage === 'tehtudtood' ? 'active' : '' %>">Tehtud tööd</a>
+        </li>
+
+        <li>
+            <a href="/admin/info" class="<%= activePage === 'info' ? 'active' : '' %>">Info</a>
+        </li>
+
+        <li>
+            <a href="/admin/kontakt" class="<%= activePage === 'kontakt' ? 'active' : '' %>">Kontakt</a>
+        </li>
+
+        <li>
+                <form action="/logout" method="post" class="logout-form">
+                    <button type="submit" class="btn">Logi välja</button>
+                </form>
+            </li>
+    </ul>
+</nav>

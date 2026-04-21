@@ -1,0 +1,71 @@
+<!-- <%- include("partials/header", { pageTitle: "Kontakt", activePage: "kontakt" }) %>
+
+
+    <section class="contact-section">
+
+        <h1 class="contact-title">KONTAKT</h1>
+
+        <div class="contact-content">
+
+            <div class="contact-info">
+                <p><strong>Tallinn Mustamäe</strong></p>
+                <p><%= data.address %></p>
+                <p>Eelregistreerimisega</p>
+                <p><%= data.hours %></p>
+                <p>Tel: <%= data.phone %></p>
+
+                <a href="https://www.google.com/maps/search/?api=1&query=<%= encodeURIComponent(data.address) %>"
+                   target="_blank"
+                   class="map-btn">
+                    Ava Google Mapsis
+                </a>
+            </div>
+
+            <div class="contact-map">
+                <iframe
+                    src="https://www.google.com/maps?q=<%= encodeURIComponent(data.address) %>&output=embed"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+            </div>
+
+        </div>
+
+    </section>
+
+
+<%- include("partials/footer") %> -->
+
+<%- include("partials/header", { pageTitle: "Kontakt", activePage: "kontakt" }) %>
+
+<section class="contact-section">
+    <h1 class="contact-title">KONTAKT</h1>
+
+    <div class="contact-content">
+        <div class="contact-info">
+            <p><strong>Tallinn Mustamäe</strong></p>
+            <p><%= data?.address || "" %></p>
+            <p>Eelregistreerimisega</p>
+            <p><%= data?.hours || "" %></p>
+            <p>Tel: <%= data?.phone || "" %></p>
+
+            <a
+                href="https://www.google.com/maps/search/?api=1&query=<%= encodeURIComponent(data?.address || '') %>"
+                target="_blank"
+                class="map-btn"
+            >
+                Ava Google Mapsis
+            </a>
+        </div>
+
+        <div class="contact-map">
+            <iframe
+                src="https://www.google.com/maps?q=<%= encodeURIComponent(data?.address || '') %>&output=embed"
+                allowfullscreen=""
+                loading="lazy"
+            ></iframe>
+        </div>
+    </div>
+</section>
+
+<%- include("partials/footer") %>

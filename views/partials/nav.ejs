@@ -1,0 +1,42 @@
+<nav>
+    <ul class="menu">
+        <li>
+            <a href="/" class="<%= activePage === 'avaleht' ? 'active' : '' %>">Avaleht</a>
+        </li>
+
+        <li class="dropdown">
+            <a href="/hinnakiri" class="<%= activePage === 'hinnakiri' ? 'active' : '' %>">Hinnakiri</a>
+            <ul class="dropdown-menu">
+                <% if (categories && categories.length > 0) { %>
+                    <% categories.forEach(category => { %>
+                        <li>
+                            <a href="/hinnakiri#<%= category.id %>"><%= category.title %></a>
+                        </li>
+                    <% }) %>
+                <% } else { %>
+                    <li><a href="/hinnakiri">Hinnakiri</a></li>
+                <% } %>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+            <a href="/tehtudtood" class="<%= activePage === 'tehtudtood' ? 'active' : '' %>">Tehtud Tööd</a>
+            <ul class="dropdown-menu">
+                <li><a href="/tehtudtood#kuuned">Küüned</a></li>
+                <li><a href="/tehtudtood#juuksed">Juuksed</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="/info" class="<%= activePage === 'info' ? 'active' : '' %>">Info</a>
+        </li>
+
+        <li>
+            <a href="/kontakt" class="<%= activePage === 'kontakt' ? 'active' : '' %>">Kontakt</a>
+        </li>
+
+        <li>
+            <a href="/login" class="<%= activePage === 'login' ? 'active' : '' %>">Login</a>
+        </li>
+    </ul>
+</nav>

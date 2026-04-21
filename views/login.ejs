@@ -1,0 +1,24 @@
+<%- include("partials/header", { pageTitle: "Login", activePage: "login" }) %>
+
+    <section class="info-section">
+        <h1 class="info-title">LOGIN</h1>
+
+        <div class="info-block login-card">
+            <% if (error) { %>
+                <p class="form-error"><%= error %></p>
+            <% } %>
+
+            <form action="/login" method="post" class="admin-form">
+                <label for="username">Kasutajanimi</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Parool</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit" class="btn">Logi sisse</button>
+            </form>
+        </div>
+    </section>
+
+
+<%- include("partials/footer") %>

@@ -1,0 +1,155 @@
+<%- include("partials/header", { pageTitle: "Hinnakiri", activePage: "hinnakiri" }) %>
+
+<section class="info-section">
+    <h1 class="info-title">HINNAKIRI (ADMIN)</h1>
+
+    <div class="info-block">
+        <% if (message) { %>
+            <div class="success-message"><%= message %></div>
+        <% } %>
+
+        <h2>Lisa uus teenus</h2>
+
+        <form method="POST" action="/admin/hinnakiri/item/add" class="admin-form">
+            <label for="category_id">Kategooria</label>
+            <select id="category_id" name="category_id" required>
+                <% categories.forEach(category => { %>
+                    <option value="<%= category.id %>"><%= category.title %></option>
+                <% }) %>
+            </select>
+
+            <label for="subgroup">Alamgrupp</label>
+            <select id="subgroup" name="subgroup">
+                <option value="">Puudub</option>
+                <option value="Keratiin juuksepikendused">Keratiin juuksepikendused</option>
+                <option value="Teip juuksepikendused">Teip juuksepikendused</option>
+            </select>
+
+            <label for="name">Teenuse nimi</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="description">Kirjeldus</label>
+            <input type="text" id="description" name="description">
+
+            <label for="price">Hind</label>
+            <input type="text" id="price" name="price">
+
+            <label for="sort_order">Järjekord</label>
+            <input type="number" id="sort_order" name="sort_order" value="1" required>
+
+            <button type="submit" class="btn">Lisa teenus</button>
+        </form>
+    </div>
+
+    <div class="info-block">
+        <h2>Teenused</h2>
+
+        <% categories.forEach(category => { %>
+            <div class="admin-category-group">
+                <h3><%= category.title %></h3>
+
+                <% const categoryItems = items.filter(item => item.category_id === category.id); %>
+
+                <% if (categoryItems.length > 0) { %>
+                    <% categoryItems.forEach(item => { %>
+                        <div class="admin-item-form">
+                            <form method="POST" action="/admin/hinnakiri/item/<%= item.id %>/update" class="admin-form">
+                                <label>Kategooria</label>
+                                <select name="category_id" required>
+                                    <% categories.forEach(optionCategory => { %>
+                                        <option value="<%= optionCategory.id %>" <%= optionCategory.id === item.category_id ? "selected" : "" %>>
+                                            <%= optionCategory.title %>
+                                        </option>
+                                    <% }) %>
+                                </select>
+
+                                <label>Alamgrupp</label>
+                                <select name="subgroup">
+                                    <option value="" <%= !item.subgroup ? "selected" : "" %>>Puudub</option>
+                                    <option value="Keratiin juuksepikendused" <%= item.subgroup === "Keratiin juuksepikendused" ? "selected" : "" %>>Keratiin juuksepikendused</option>
+                                    <option value="Teip juuksepikendused" <%= item.subgroup === "Teip juuksepikendused" ? "selected" : "" %>>Teip juuksepikendused</option>
+                                </select>
+
+                                <label>Teenuse nimi</label>
+                                <input type="text" name="name" value="<%= item.name %>" required>
+
+                                <label>Kirjeldus</label>
+                                <input type="text" name="description" value="<%= item.description || '' %>">
+
+                                <label>Hind</label>
+                                <input type="text" name="price" value="<%= item.price || '' %>">
+
+                                <label>Järjekord</label>
+                                <input type="number" name="sort_order" value="<%= item.sort_order %>" required>
+
+                                <div class="admin-actions">
+                                    <button type="submit" class="btn">Salvesta</button>
+                                </div>
+                            </form>
+
+                            <form method="POST" action="/admin/hinnakiri/item/<%= item.id %>/delete" onsubmit="return confirm('Kas kustutada see teenus?')">
+                                <button type="submit" class="btn btn-delete">Kustuta</button>
+                            </form>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p>Selles kategoorias teenuseid veel ei ole.</p>
+                <% } %>
+            </div>
+        <% }) %>
+    </div>
+
+    <div class="info-block">
+        <h2>Märkused</h2>
+
+        <form method="POST" action="/admin/hinnakiri/note/add" class="admin-form">
+            <label for="note_category_id">Kategooria</label>
+            <select id="note_category_id" name="category_id" required>
+                <% categories.forEach(category => { %>
+                    <option value="<%= category.id %>"><%= category.title %></option>
+                <% }) %>
+            </select>
+
+            <label for="note_text">Märkus</label>
+            <input type="text" id="note_text" name="text" required>
+
+            <label for="note_sort_order">Järjekord</label>
+            <input type="number" id="note_sort_order" name="sort_order" value="1" required>
+
+            <button type="submit" class="btn">Lisa märkus</button>
+        </form>
+
+        <% if (notes.length > 0) { %>
+            <% notes.forEach(note => { %>
+                <div class="admin-item-form">
+                    <form method="POST" action="/admin/hinnakiri/note/<%= note.id %>/update" class="admin-form">
+                        <label>Kategooria</label>
+                        <select name="category_id" required>
+                            <% categories.forEach(category => { %>
+                                <option value="<%= category.id %>" <%= category.id === note.category_id ? "selected" : "" %>>
+                                    <%= category.title %>
+                                </option>
+                            <% }) %>
+                        </select>
+
+                        <label>Märkus</label>
+                        <input type="text" name="text" value="<%= note.text %>" required>
+
+                        <label>Järjekord</label>
+                        <input type="number" name="sort_order" value="<%= note.sort_order %>" required>
+
+                        <div class="admin-actions">
+                            <button type="submit" class="btn">Salvesta</button>
+                        </div>
+                    </form>
+
+                    <form method="POST" action="/admin/hinnakiri/note/<%= note.id %>/delete" onsubmit="return confirm('Kas kustutada see märkus?')">
+                        <button type="submit" class="btn btn-delete">Kustuta</button>
+                    </form>
+                </div>
+            <% }) %>
+        <% } %>
+    </div>
+</section>
+
+<%- include("partials/footer") %>
