@@ -148,6 +148,21 @@ select {
     transform: translateY(0);
 }
 
+@media (max-width: 820px) {
+    .dropdown:hover .dropdown-menu,
+    .dropdown:focus-within .dropdown-menu {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(8px);
+    }
+
+    .dropdown.open .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
 .btn {
     display: inline-block;
     padding: 14px 32px;
