@@ -1,7 +1,14 @@
-<%- include("partials/header", { pageTitle: "Info", activePage: "info" }) %>
+<%- include("partials/header", {
+    pageTitle: "Info – iluteenused Mustamäel",
+    pageDescription: "Lisainfo iluteenuste kohta Mustamäel – kuidas tulla, mida oodata ja muu oluline.",
+    canonicalUrl: "https://iluteenused.com/info",
+    ogTitle: "Iluteenuste info",
+    ogDescription: "Oluline info enne külastust.",
+    activePage: "info"
+}) %>
 
 <section class="info-section">
-    <h1 class="info-title">Info</h1>
+    <h1 class="info-title">INFO</h1>
 
     <% if (!infoItems || infoItems.length === 0) { %>
         <p>Info puudub hetkel.</p>

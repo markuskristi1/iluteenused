@@ -1,43 +1,12 @@
-<!-- <!DOCTYPE html>
-<html lang="et">
-<head>
-    <meta charset="utf-8">
-    <title>Hinnakiri</title>
-    <link rel="stylesheet" href="/css.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
+<%- include("partials/header", {
+    pageTitle: "Hinnakiri – geelküüned ja iluteenused Mustamäel",
+    pageDescription: "Vaata iluteenuste hinnakirja Mustamäel – geelküüned, geellakkimine, kõrvaaukude tegemine ja muud teenused.",
+    canonicalUrl: "https://iluteenused.com/hinnakiri",
+    ogTitle: "Iluteenuste hinnakiri Mustamäel",
+    ogDescription: "Geelküünte ja teiste iluteenuste hinnad Mustamäel.",
+    activePage: "hinnakiri"
+}) %>
 
-<header class="header">
-    <div class="logo">
-        <a href="/" class="logo-text">iluteenused</a>
-    </div>
-
-    <nav>
-        <ul class="menu">
-            <li><a href="/">Avaleht</a></li>
-
-            <li class="dropdown">
-                <a href="/hinnakiri" class="active">Hinnakiri</a>
-                <ul class="dropdown-menu">
-                    <% categories.forEach(category => { %>
-                        <li>
-                            <a href="/hinnakiri#<%= category.id %>"><%= category.title %></a>
-                        </li>
-                    <% }) %>
-                </ul>
-            </li>
-
-            <li><a href="/tehtudtood">Tehtud Tööd</a></li>
-            <li><a href="/info">Info</a></li>
-            <li><a href="/kontakt">Kontakt</a></li>
-            <li><a href="/login">Login</a></li>
-        </ul>
-    </nav>
-</header> -->
-
-<%- include("partials/header", { pageTitle: "Hinnakiri", activePage: "hinnakiri" }) %>
 <section class="price-section">
     <h1 class="price-title">HINNAKIRI</h1>
 
@@ -107,4 +76,3 @@
 </section>
 
 <%- include("partials/footer") %>
-

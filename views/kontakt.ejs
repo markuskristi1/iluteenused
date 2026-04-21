@@ -1,62 +1,50 @@
-<!-- <%- include("partials/header", { pageTitle: "Kontakt", activePage: "kontakt" }) %>
-
-
-    <section class="contact-section">
-
-        <h1 class="contact-title">KONTAKT</h1>
-
-        <div class="contact-content">
-
-            <div class="contact-info">
-                <p><strong>Tallinn Mustamäe</strong></p>
-                <p><%= data.address %></p>
-                <p>Eelregistreerimisega</p>
-                <p><%= data.hours %></p>
-                <p>Tel: <%= data.phone %></p>
-
-                <a href="https://www.google.com/maps/search/?api=1&query=<%= encodeURIComponent(data.address) %>"
-                   target="_blank"
-                   class="map-btn">
-                    Ava Google Mapsis
-                </a>
-            </div>
-
-            <div class="contact-map">
-                <iframe
-                    src="https://www.google.com/maps?q=<%= encodeURIComponent(data.address) %>&output=embed"
-                    allowfullscreen=""
-                    loading="lazy">
-                </iframe>
-            </div>
-
-        </div>
-
-    </section>
-
-
-<%- include("partials/footer") %> -->
-
-<%- include("partials/header", { pageTitle: "Kontakt", activePage: "kontakt" }) %>
+<%- include("partials/header", {
+    pageTitle: "Kontakt – iluteenused Mustamäel",
+    pageDescription: "Võta ühendust ja broneeri aeg – geelküüned ja muud iluteenused Mustamäel.",
+    canonicalUrl: "https://iluteenused.com/kontakt",
+    ogTitle: "Kontakt – iluteenused",
+    ogDescription: "Broneeri aeg iluteenustele Mustamäel.",
+    activePage: "kontakt"
+}) %>
 
 <section class="contact-section">
     <h1 class="contact-title">KONTAKT</h1>
 
-    <div class="contact-content">
-        <div class="contact-info">
-            <p><strong>Tallinn Mustamäe</strong></p>
-            <p><%= data?.address || "" %></p>
-            <p>Eelregistreerimisega</p>
-            <p><%= data?.hours || "" %></p>
-            <p>Tel: <%= data?.phone || "" %></p>
+    <p class="contact-lead">
+        Võta julgelt ühendust ja broneeri aeg. Asume Mustamäel, Tallinnas. Ootame sind
+        hubases ja rahulikus salongis.
+    </p>
 
-            <a
-                href="https://www.google.com/maps/search/?api=1&query=<%= encodeURIComponent(data?.address || '') %>"
-                target="_blank"
-                class="map-btn"
-            >
-                Ava Google Mapsis
-            </a>
+    <div class="contact-content">
+        <div class="contact-left">
+            <div class="contact-info">
+                <!-- <p><strong>Aadress</strong></p>
+                <p><%= data?.address || "" %></p> -->
+                <p class="contact-label">Aadress</p>
+                <p class="contact-value"><%= data?.address || "" %></p>
+                <p>Eelregistreerimisega</p>
+                <p><%= data?.hours || "" %></p>
+                <p>Tel: <%= data?.phone || "" %></p>
+
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=<%= encodeURIComponent(data?.address || '') %>"
+                    target="_blank"
+                    class="map-btn"
+                >
+                    Ava Google Mapsis
+                </a>
+
+            </div>
         </div>
+
+        <!-- <div class="contact-map">
+            <iframe
+                src="https://www.google.com/maps?q=<%= encodeURIComponent(data?.address || '') %>&output=embed"
+                allowfullscreen=""
+                loading="lazy"
+            ></iframe>
+
+        </div> -->
 
         <div class="contact-map">
             <iframe
@@ -64,7 +52,40 @@
                 allowfullscreen=""
                 loading="lazy"
             ></iframe>
+
+            <div class="map-actions">
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=<%= encodeURIComponent(data?.address || '') %>"
+                    target="_blank"
+                    class="map-overlay-btn"
+                >
+                    Ava Google Mapsis
+                </a>
+
+                <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=<%= encodeURIComponent(data?.address || '') %>"
+                    target="_blank"
+                    class="map-overlay-btn map-directions-btn"
+                >
+                    Juhised kohale
+                </a>
+            </div>
         </div>
+        
+    </div>
+
+    <div class="contact-bottom">
+        <div class="contact-extra">
+            <h2>Mida pakume?</h2>
+            <p>
+                Geelküüned, juuksepikendused, Cocoshoko keratin juuste sirgendamine ja
+                kõrvaaukude tegemine. Broneerimine toimub eelregistreerimisega.
+            </p>
+        </div>
+
+        <p class="contact-note">
+            Aja broneerimiseks helista või kirjuta – vastame esimesel võimalusel.
+        </p>
     </div>
 </section>
 
