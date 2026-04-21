@@ -33,35 +33,43 @@ if (scrollBtn) {
 const dropdowns = document.querySelectorAll(".dropdown");
 
 dropdowns.forEach((dropdown) => {
-    const trigger = dropdown.children[0];
+    const trigger = dropdown.children[0]; // Hinnakiri link
     const menuLinks = dropdown.querySelectorAll(".dropdown-menu a");
+
+    let openedOnce = false;
 
     if (!trigger) return;
 
     trigger.addEventListener("click", (event) => {
         if (window.innerWidth <= 820) {
-            event.preventDefault();
-            event.stopPropagation();
 
-            const isOpen = dropdown.classList.contains("open");
+            if (!dropdown.classList.contains("open")) {
+                // ESIMENE KLIK → ava dropdown
+                event.preventDefault();
 
-            dropdowns.forEach((item) => item.classList.remove("open"));
-
-            if (!isOpen) {
+                dropdowns.forEach(item => item.classList.remove("open"));
                 dropdown.classList.add("open");
+
+                openedOnce = true;
+            } else {
+                // TEINE KLIK → lase link toimida (/hinnakiri)
+                openedOnce = false;
             }
         }
     });
 
+    // Kui vajutatakse alamlinki → sulge dropdown
     menuLinks.forEach((link) => {
         link.addEventListener("click", () => {
             if (window.innerWidth <= 820) {
                 dropdown.classList.remove("open");
+                openedOnce = false;
             }
         });
     });
 });
 
+// klik väljaspool → sulge
 document.addEventListener("click", (event) => {
     if (window.innerWidth <= 820) {
         dropdowns.forEach((dropdown) => {
