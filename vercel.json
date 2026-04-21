@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/juuksed",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/kuuned",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
