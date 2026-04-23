@@ -1294,3 +1294,70 @@ select {
         text-align: center;
     }
 }
+.footer {
+    text-align: center;
+    padding: 20px;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.social-links a:hover {
+    color: #000;
+}
+
+.footer {
+    background: #f8f8f8;
+    padding: 25px 15px;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-text {
+    font-size: 14px;
+    color: #666;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    transition: 0.2s;
+}
+
+.social-links a:hover {
+    background: #000;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    fill: #333;
+}
+
+.social-links a:hover .icon {
+    fill: #fff;
+}
